@@ -1,0 +1,18 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Explicitly set line endings for source code files
+*.cpp text eol=lf
+*.h text eol=lf
+*.c text eol=lf
+*.txt text eol=lf
+
+# Ensure binary files are not modified
+*.png binary
+*.jpg binary
+*.exe binary
+*.dll binary
+
+# Handle specific files that should use CRLF
+*.bat text eol=crlf
+*.ps1 text eol=crlf
