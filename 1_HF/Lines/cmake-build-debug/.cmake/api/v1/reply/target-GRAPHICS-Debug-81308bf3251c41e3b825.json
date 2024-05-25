@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "GFX.exe"
+			"path" : "GRAPHICS.exe"
 		},
 		{
-			"path" : "GFX.pdb"
+			"path" : "GRAPHICS.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -59,14 +59,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -LC:/Schoo/Grafika/1_HFv2/GFX_WIN_UNIX/bin -LC:/Schoo/Grafika/1_HFv2/GFX_WIN_UNIX/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always"
+					"fragment" : " -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 3,
-					"path" : "C:/Schoo/Grafika/1_HFv2/GFX_WIN_UNIX/include"
+					"path" : "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/include"
 				}
 			],
 			"language" : "CXX",
@@ -85,13 +85,13 @@
 			]
 		}
 	],
-	"id" : "GFX::@6890427a1f51a3e7e1df",
+	"id" : "GRAPHICS::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-LC:/Schoo/Grafika/1_HFv2/GFX_WIN_UNIX/bin -LC:/Schoo/Grafika/1_HFv2/GFX_WIN_UNIX/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g",
+				"fragment" : "-LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g",
 				"role" : "flags"
 			},
 			{
@@ -115,8 +115,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "GFX",
-	"nameOnDisk" : "GFX.exe",
+	"name" : "GRAPHICS",
+	"nameOnDisk" : "GRAPHICS.exe",
 	"paths" : 
 	{
 		"build" : ".",

@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\GRAPHICS.dir/objects.a
+C:\PROGRA~1\CODEBL~1\MinGW\bin\ar.exe qc CMakeFiles\GRAPHICS.dir/objects.a @CMakeFiles\GRAPHICS.dir\objects1.rsp
+C:\PROGRA~1\CODEBL~1\MinGW\bin\C__~1.EXE  -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -Wl,--whole-archive CMakeFiles\GRAPHICS.dir/objects.a -Wl,--no-whole-archive -o GRAPHICS.exe -Wl,--out-implib,libGRAPHICS.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\GRAPHICS.dir\linkLibs.rsp

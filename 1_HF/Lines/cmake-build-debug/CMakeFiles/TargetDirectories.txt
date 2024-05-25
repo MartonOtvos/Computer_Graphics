@@ -1,3 +1,3 @@
-C:/Schoo/Grafika/1_HFv2/GFX_WIN_UNIX/cmake-build-debug/CMakeFiles/GFX.dir
-C:/Schoo/Grafika/1_HFv2/GFX_WIN_UNIX/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Schoo/Grafika/1_HFv2/GFX_WIN_UNIX/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/cmake-build-debug/CMakeFiles/GRAPHICS.dir
+C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/cmake-build-debug/CMakeFiles/rebuild_cache.dir
