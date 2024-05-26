@@ -4,6 +4,7 @@
 // Do not change it if you want to submit a homework.
 //=============================================================================================
 #include "framework.h"
+#include "Skeleton.h"
 
 // Initialization
 void onInitialization();
@@ -37,7 +38,7 @@ int main(int argc, char * argv[]) {
 	glutInitContextVersion(majorVersion, minorVersion);
 #endif
 	glutInitWindowSize(windowWidth, windowHeight);				// Application window is initially of resolution 600x600
-	glutInitWindowPosition(100, 100);							// Relative location of the application window
+	glutInitWindowPosition(400, 100);							// Relative location of the application window
 #if defined(__APPLE__)
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH | GLUT_3_2_CORE_PROFILE);  // 8 bit R,G,B,A + double buffer + depth buffer
 #else
@@ -58,14 +59,15 @@ int main(int argc, char * argv[]) {
 	printf("GLSL Version : %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
 
 	// Initialize this program and create shaders
-	onInitialization();
+    auto* graphicsInstance = new Skeleton();
+	graphicsInstance->onInitialization();
 
-	glutDisplayFunc(onDisplay);                // Register event handlers
-	glutMouseFunc(onMouse);
-	glutIdleFunc(onIdle);
-	glutKeyboardFunc(onKeyboard);
-	glutKeyboardUpFunc(onKeyboardUp);
-	glutMotionFunc(onMouseMotion);
+	glutDisplayFunc(graphicsInstance->onDisplay);                // Register event handlers
+	glutMouseFunc(graphicsInstance->onMouse);
+	glutIdleFunc(graphicsInstance->onIdle);
+	glutKeyboardFunc(graphicsInstance->onKeyboard);
+	glutKeyboardUpFunc(graphicsInstance->onKeyboardUp);
+	glutMotionFunc(graphicsInstance->onMouseMotion);
 
 	glutMainLoop();
 	return 1;

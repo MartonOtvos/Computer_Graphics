@@ -6,7 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(GRAPHICS
                 src/framework.h
-                src/framework.cpp)
+                src/framework.cpp
+        src/Skeleton.h)
 
 # Name of file that I want to build
 target_sources(GRAPHICS PRIVATE
