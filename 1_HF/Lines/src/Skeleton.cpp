@@ -31,19 +31,35 @@
 // Tudomasul veszem, hogy a forrasmegjeloles kotelmenek megsertese eseten a hazifeladatra adhato pontokat
 // negativ elojellel szamoljak el es ezzel parhuzamosan eljaras is indul velem szemben.
 //=============================================================================================
-#include "framework.h"
+
 #include "Skeleton.h"
+#include "Object.h"
+#include "PointCollection.h"
 
-
-    // vertex shader in GLSL: It is a Raw string (C++11) since it contains new line characters
-    const char * const vertexSource = R"(
+// vertex shader in GLSL: It is a Raw string (C++11) since it contains new line characters
+    static const char * const vertexSource = R"(
         #version 330
+        precision highp float;
 
+        uniform mat4 MVP;
+        layout(location = 0) in vec2 vp;
+
+        void main() {
+            gl_Position = vec4(vp.x, vp.y, 0, 1) * MVP;
+        }
     )";
 
     // fragment shader in GLSL
-    const char * const fragmentSource = R"(
+    static const char * const fragmentSource = R"(
+        #version 330
+        precision highp float;
 
+        uniform vec3 color;
+        out vec4 outColor;
+
+        void main() {
+            outColor = vec4(color, 1);
+        }
     )";
 
     Skeleton::Skeleton() : vertexShader(vertexSource), fragmentShader(fragmentSource) {}
@@ -51,18 +67,57 @@
     // Initialization, create an OpenGL context
     void Skeleton::onInitialization() {
         glViewport(0, 0, windowWidth, windowHeight);
+        InitializeShaderProgram();
+        glPointSize(10);
+        glLineWidth(5);
 
-
+        points = new PointCollection(shaderProgram);
+        lines = new LineCollection(shaderProgram);
+        lines->CreateLine(vec2(0.5,0.5),vec2(-0.5,-0.5));
+        lines->CreateLine(vec2(-0.5,0.5),vec2(0.5,-0.5));
     }
+
+    void Skeleton::InitializeShaderProgram(){
+        unsigned int vertShader = glCreateShader(GL_VERTEX_SHADER);
+        glShaderSource(vertShader, 1, (const GLchar**)&vertexShader, NULL);
+        glCompileShader(vertShader);
+
+        unsigned int fragShader = glCreateShader(GL_FRAGMENT_SHADER);
+        glShaderSource(fragShader, 1, (const GLchar**)&fragmentShader, NULL);
+        glCompileShader(fragShader);
+
+        shaderProgram = glCreateProgram();
+        glAttachShader(shaderProgram, vertShader);
+        glAttachShader(shaderProgram, fragShader);
+
+        glBindFragDataLocation(shaderProgram, 0, "outColor");
+
+        glLinkProgram(shaderProgram);
+        glUseProgram(shaderProgram);
+    }
+
 
     // Window has become invalid: Redraw
     void Skeleton::onDisplay() {
+        glClearColor(0,0,0,0);
+        glClear(GL_COLOR_BUFFER_BIT);
 
+        lines->Draw();
+        points->Draw();
+        glutSwapBuffers();
     }
 
     // Key of ASCII code pressed
     void Skeleton::onKeyboard(unsigned char key, int pX, int pY) {
-        if (key == 'd') glutPostRedisplay();         // if d, invalidate display, i.e. redraw
+        switch(key){
+            case 'p': interactionMode = POINTCREATE; printf("Add points\n"); break;
+            case 'l': interactionMode = LINECREATE; printf("Define lines\n"); break;
+            case 'i': interactionMode = INTERSECT; printf("Intersect lines\n"); break;
+            case 'm': interactionMode = LINEMOVE; printf("Move lines\n");break;
+            default: break;
+        }
+        selectedLine = nullptr;
+        selectedPoint = vec2(NAN,NAN);
     }
 
     // Key of ASCII code released
@@ -74,7 +129,16 @@
         // Convert to normalized device space
         float cX = 2.0f * pX / windowWidth - 1;	// flip y axis
         float cY = 1.0f - 2.0f * pY / windowHeight;
-        printf("Mouse moved to (%3.2f, %3.2f)\n", cX, cY);
+
+        if(interactionMode == LINEMOVE){
+            if(selectedLine != nullptr){
+                selectedLine->Move(vec2(cX,cY));
+                lines->UpdateLines();
+
+            }
+        }
+
+        glutPostRedisplay();
     }
 
     // Mouse click event
@@ -85,21 +149,38 @@
 
         char * buttonStat;
         switch (state) {
-            case GLUT_DOWN: buttonStat = "pressed"; break;
-            case GLUT_UP:   buttonStat = "released"; break;
+            case GLUT_DOWN: buttonStat = (char*) "pressed"; break;
+            case GLUT_UP:   buttonStat = (char*) "released"; break;
         }
 
         switch (button) {
-            case GLUT_LEFT_BUTTON:   printf("Left button %s at (%3.2f, %3.2f)\n", buttonStat, cX, cY);   break;
+            case GLUT_LEFT_BUTTON:      break;
             case GLUT_MIDDLE_BUTTON: printf("Middle button %s at (%3.2f, %3.2f)\n", buttonStat, cX, cY); break;
             case GLUT_RIGHT_BUTTON:  printf("Right button %s at (%3.2f, %3.2f)\n", buttonStat, cX, cY);  break;
         }
+
+        if(strcmp(buttonStat,"pressed") == 0){
+            switch(interactionMode){
+                case POINTCREATE: points->CreatePoint(vec2(cX,cY)); break;
+                case LINECREATE: if(!isnan(selectedPoint.x)){ lines->CreateLine(vec2(cX,cY),selectedPoint); selectedPoint = (NAN,NAN); }
+                                 else{ selectedPoint = points->FindPoint(vec2(cX,cY)); }  break;
+                case LINEMOVE: if(selectedLine == nullptr) selectedLine = lines->FindLine(vec2(cX,cY)); break;
+                case INTERSECT: if(selectedLine == nullptr){ selectedLine = lines->FindLine(vec2(cX,cY)); }
+                                else{ if(lines->FindLine(vec2(cX,cY)) != nullptr){
+                                    points->CreatePoint(selectedLine->Intersect(*lines->FindLine(vec2(cX,cY)))); selectedLine = nullptr; }
+                                } break;
+            }
+        }
+        if(strcmp(buttonStat,"released") == 0){
+            if(interactionMode == LINEMOVE){
+                selectedLine = nullptr;
+            }
+        }
+        glutPostRedisplay();
     }
 
     // Idle event indicating that some time elapsed: do animation here
-    void Skeleton::onIdle() {
-        long time = glutGet(GLUT_ELAPSED_TIME); // elapsed time since the start of the program
-    }
+    void Skeleton::onIdle() {}
 
 
 

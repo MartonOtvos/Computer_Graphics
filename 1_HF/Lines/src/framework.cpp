@@ -3,29 +3,10 @@
 // Framework for assignments. Valid from 2019.
 // Do not change it if you want to submit a homework.
 //=============================================================================================
-#include "framework.h"
 #include "Skeleton.h"
 
-// Initialization
-void onInitialization();
 
-// Window has become invalid: Redraw
-void onDisplay();
-
-// Key of ASCII code pressed
-void onKeyboard(unsigned char key, int pX, int pY);
-
-// Key of ASCII code released
-void onKeyboardUp(unsigned char key, int pX, int pY);
-
-// Move mouse with key pressed
-void onMouseMotion(int pX, int pY);
-
-// Mouse click event
-void onMouse(int button, int state, int pX, int pY);
-
-// Idle event indicating that some time elapsed: do animation here
-void onIdle();
+Skeleton* skeleton = new Skeleton();
 
 // Entry point of the application
 int main(int argc, char * argv[]) {
@@ -37,14 +18,14 @@ int main(int argc, char * argv[]) {
 #if !defined(__APPLE__)
 	glutInitContextVersion(majorVersion, minorVersion);
 #endif
-	glutInitWindowSize(windowWidth, windowHeight);				// Application window is initially of resolution 600x600
+	glutInitWindowSize(windowWidth, windowHeight);				// Application window is initially of resolution 800x800
 	glutInitWindowPosition(400, 100);							// Relative location of the application window
 #if defined(__APPLE__)
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH | GLUT_3_2_CORE_PROFILE);  // 8 bit R,G,B,A + double buffer + depth buffer
 #else
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 #endif
-	glutCreateWindow(argv[0]);
+	glutCreateWindow("Line Manipulation");
 
 #if !defined(__APPLE__)
 	glewExperimental = true;	// magic
@@ -59,15 +40,25 @@ int main(int argc, char * argv[]) {
 	printf("GLSL Version : %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
 
 	// Initialize this program and create shaders
-    auto* graphicsInstance = new Skeleton();
-	graphicsInstance->onInitialization();
+    skeleton->onInitialization();
 
-	glutDisplayFunc(graphicsInstance->onDisplay);                // Register event handlers
-	glutMouseFunc(graphicsInstance->onMouse);
-	glutIdleFunc(graphicsInstance->onIdle);
-	glutKeyboardFunc(graphicsInstance->onKeyboard);
-	glutKeyboardUpFunc(graphicsInstance->onKeyboardUp);
-	glutMotionFunc(graphicsInstance->onMouseMotion);
+    // Register onDisplay function
+    glutDisplayFunc([]() { skeleton->onDisplay(); });
+
+    // Register onMouse function
+    glutMouseFunc([](int button, int state, int x, int y) { skeleton->onMouse(button, state, x, y); });
+
+    // Register onIdle function
+    glutIdleFunc([]() { skeleton->onIdle(); });
+
+    // Register onKeyboard function
+    glutKeyboardFunc([](unsigned char key, int x, int y) { skeleton->onKeyboard(key, x, y); });
+
+    // Register onKeyboardUp function
+    glutKeyboardUpFunc([](unsigned char key, int x, int y) { skeleton->onKeyboardUp(key, x, y); });
+
+    // Register onMouseMotion function
+    glutMotionFunc([](int x, int y) { skeleton->onMouseMotion(x, y); });
 
 	glutMainLoop();
 	return 1;

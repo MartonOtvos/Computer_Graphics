@@ -2,6 +2,17 @@
 #define GRAPHICS_SKELETON_H
 
 
+#include "Object.h"
+#include "PointCollection.h"
+#include "Line.h"
+#include "LineCollection.h"
+
+enum Mode {
+    POINTCREATE,
+    LINECREATE,
+    LINEMOVE,
+    INTERSECT
+};
 
 class Skeleton{
     // vertex shader in GLSL: It is a Raw string (C++11) since it contains new line characters
@@ -10,7 +21,17 @@ class Skeleton{
     // fragment shader in GLSL
     const char * const fragmentShader;
 
+    unsigned int shaderProgram;
 
+    PointCollection* points;
+    LineCollection* lines;
+
+    Mode interactionMode = POINTCREATE;
+
+    vec2 selectedPoint = vec2(NAN,NAN);
+    Line* selectedLine = nullptr;
+
+    void InitializeShaderProgram();
 
 public:
 
@@ -19,22 +40,24 @@ public:
     void onInitialization();
 
     // Window has become invalid: Redraw
-    static void onDisplay();
+    void onDisplay();
 
     // Key of ASCII code pressed
-    static void onKeyboard(unsigned char key, int pX, int pY);
+    void onKeyboard(unsigned char key, int pX, int pY);
 
     // Key of ASCII code released
-    static void onKeyboardUp(unsigned char key, int pX, int pY);
+    void onKeyboardUp(unsigned char key, int pX, int pY);
 
     // Move mouse with key pressed
-    static void onMouseMotion(int pX, int pY);
+    void onMouseMotion(int pX, int pY);
 
     // Mouse click event
-    static void onMouse(int button, int state, int pX, int pY);
+    void onMouse(int button, int state, int pX, int pY);
 
     // Idle event indicating that some time elapsed: do animation here
-    static void onIdle();
+    void onIdle();
+
+
 };
 
 #endif //GRAPHICS_SKELETON_H

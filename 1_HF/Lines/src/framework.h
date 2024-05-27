@@ -12,6 +12,9 @@
 #include <vector>
 #include <string>
 
+#ifndef GRAPHICS_FRAMEWORK_H
+#define GRAPHICS_FRAMEWORK_H
+
 #if defined(__APPLE__)
 #include <GLUT/GLUT.h>
 #include <OpenGL/gl3.h>
@@ -395,3 +398,5 @@ public:
 
 	~GPUProgram() { if (shaderProgramId > 0) glDeleteProgram(shaderProgramId); }
 };
+
+#endif

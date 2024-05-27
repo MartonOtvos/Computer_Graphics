@@ -56,6 +56,34 @@ build CMakeFiles/GRAPHICS.dir/src/framework.cpp.obj: CXX_COMPILER__GRAPHICS_unsc
   OBJECT_DIR = CMakeFiles\GRAPHICS.dir
   OBJECT_FILE_DIR = CMakeFiles\GRAPHICS.dir\src
 
+build CMakeFiles/GRAPHICS.dir/src/Object.cpp.obj: CXX_COMPILER__GRAPHICS_unscanned_Debug C$:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/src/Object.cpp || cmake_object_order_depends_target_GRAPHICS
+  DEP_FILE = CMakeFiles\GRAPHICS.dir\src\Object.cpp.obj.d
+  FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/include
+  OBJECT_DIR = CMakeFiles\GRAPHICS.dir
+  OBJECT_FILE_DIR = CMakeFiles\GRAPHICS.dir\src
+
+build CMakeFiles/GRAPHICS.dir/src/PointCollection.cpp.obj: CXX_COMPILER__GRAPHICS_unscanned_Debug C$:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/src/PointCollection.cpp || cmake_object_order_depends_target_GRAPHICS
+  DEP_FILE = CMakeFiles\GRAPHICS.dir\src\PointCollection.cpp.obj.d
+  FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/include
+  OBJECT_DIR = CMakeFiles\GRAPHICS.dir
+  OBJECT_FILE_DIR = CMakeFiles\GRAPHICS.dir\src
+
+build CMakeFiles/GRAPHICS.dir/src/Line.cpp.obj: CXX_COMPILER__GRAPHICS_unscanned_Debug C$:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/src/Line.cpp || cmake_object_order_depends_target_GRAPHICS
+  DEP_FILE = CMakeFiles\GRAPHICS.dir\src\Line.cpp.obj.d
+  FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/include
+  OBJECT_DIR = CMakeFiles\GRAPHICS.dir
+  OBJECT_FILE_DIR = CMakeFiles\GRAPHICS.dir\src
+
+build CMakeFiles/GRAPHICS.dir/src/LineCollection.cpp.obj: CXX_COMPILER__GRAPHICS_unscanned_Debug C$:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/src/LineCollection.cpp || cmake_object_order_depends_target_GRAPHICS
+  DEP_FILE = CMakeFiles\GRAPHICS.dir\src\LineCollection.cpp.obj.d
+  FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/include
+  OBJECT_DIR = CMakeFiles\GRAPHICS.dir
+  OBJECT_FILE_DIR = CMakeFiles\GRAPHICS.dir\src
+
 build CMakeFiles/GRAPHICS.dir/src/Skeleton.cpp.obj: CXX_COMPILER__GRAPHICS_unscanned_Debug C$:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/src/Skeleton.cpp || cmake_object_order_depends_target_GRAPHICS
   DEP_FILE = CMakeFiles\GRAPHICS.dir\src\Skeleton.cpp.obj.d
   FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always
@@ -71,7 +99,7 @@ build CMakeFiles/GRAPHICS.dir/src/Skeleton.cpp.obj: CXX_COMPILER__GRAPHICS_unsca
 #############################################
 # Link the executable GRAPHICS.exe
 
-build GRAPHICS.exe: CXX_EXECUTABLE_LINKER__GRAPHICS_Debug CMakeFiles/GRAPHICS.dir/src/framework.cpp.obj CMakeFiles/GRAPHICS.dir/src/Skeleton.cpp.obj
+build GRAPHICS.exe: CXX_EXECUTABLE_LINKER__GRAPHICS_Debug CMakeFiles/GRAPHICS.dir/src/framework.cpp.obj CMakeFiles/GRAPHICS.dir/src/Object.cpp.obj CMakeFiles/GRAPHICS.dir/src/PointCollection.cpp.obj CMakeFiles/GRAPHICS.dir/src/Line.cpp.obj CMakeFiles/GRAPHICS.dir/src/LineCollection.cpp.obj CMakeFiles/GRAPHICS.dir/src/Skeleton.cpp.obj
   FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/1_HF/Lines/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g
   LINK_LIBRARIES = -lopengl32  -lglu32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\GRAPHICS.dir
