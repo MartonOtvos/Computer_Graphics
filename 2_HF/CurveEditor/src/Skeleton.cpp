@@ -33,8 +33,6 @@
 //=============================================================================================
 
 #include "Skeleton.h"
-#include "Object.h"
-#include "PointCollection.h"
 
 // vertex shader in GLSL: It is a Raw string (C++11) since it contains new line characters
     static const char * const vertexSource = R"(
@@ -68,13 +66,8 @@
     void Skeleton::onInitialization() {
         glViewport(0, 0, windowWidth, windowHeight);
         InitializeShaderProgram();
-        glPointSize(10);
-        glLineWidth(5);
 
-        points = new PointCollection(shaderProgram);
-        lines = new LineCollection(shaderProgram);
-        lines->CreateLine(vec2(0.5,0.5),vec2(-0.5,-0.5));
-        lines->CreateLine(vec2(-0.5,0.5),vec2(0.5,-0.5));
+
     }
 
     void Skeleton::InitializeShaderProgram(){
@@ -102,43 +95,31 @@
         glClearColor(0,0,0,0);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        lines->Draw();
-        points->Draw();
+
+
         glutSwapBuffers();
     }
 
     // Key of ASCII code pressed
     void Skeleton::onKeyboard(unsigned char key, int pX, int pY) {
         switch(key){
-            case 'p': interactionMode = POINTCREATE; printf("Add points\n"); break;
-            case 'l': interactionMode = LINECREATE; printf("Define lines\n"); break;
-            case 'i': interactionMode = INTERSECT; printf("Intersect lines\n"); break;
-            case 'm': interactionMode = LINEMOVE; printf("Move lines\n");break;
+            case 'p': break;
+            case 'l': break;
+            case 'i': break;
+            case 'm': break;
             default: break;
         }
-        selectedLine = nullptr;
-        selectedPoint = vec2(NAN,NAN);
+
     }
 
     // Key of ASCII code released
-    void Skeleton::onKeyboardUp(unsigned char key, int pX, int pY) {
-    }
+    void Skeleton::onKeyboardUp(unsigned char key, int pX, int pY) {}
 
     // Move mouse with key pressed
     void Skeleton::onMouseMotion(int pX, int pY) {	// pX, pY are the pixel coordinates of the cursor in the coordinate system of the operation system
         // Convert to normalized device space
         float cX = 2.0f * pX / windowWidth - 1;	// flip y axis
         float cY = 1.0f - 2.0f * pY / windowHeight;
-
-        if(interactionMode == LINEMOVE){
-            if(selectedLine != nullptr){
-                selectedLine->Move(vec2(cX,cY));
-                lines->UpdateLines();
-
-            }
-        }
-
-        glutPostRedisplay();
     }
 
     // Mouse click event
@@ -155,26 +136,12 @@
 
         switch (button) {
             case GLUT_LEFT_BUTTON:      break;
-            case GLUT_MIDDLE_BUTTON: printf("Middle button %s at (%3.2f, %3.2f)\n", buttonStat, cX, cY); break;
-            case GLUT_RIGHT_BUTTON:  printf("Right button %s at (%3.2f, %3.2f)\n", buttonStat, cX, cY);  break;
+            case GLUT_MIDDLE_BUTTON:    break;
+            case GLUT_RIGHT_BUTTON:     break;
         }
 
         if(strcmp(buttonStat,"pressed") == 0){
-            switch(interactionMode){
-                case POINTCREATE: points->CreatePoint(vec2(cX,cY)); break;
-                case LINECREATE: if(!isnan(selectedPoint.x)){ lines->CreateLine(vec2(cX,cY),selectedPoint); selectedPoint = (NAN,NAN); }
-                                 else{ selectedPoint = points->FindPoint(vec2(cX,cY)); }  break;
-                case LINEMOVE: if(selectedLine == nullptr) selectedLine = lines->FindLine(vec2(cX,cY)); break;
-                case INTERSECT: if(selectedLine == nullptr){ selectedLine = lines->FindLine(vec2(cX,cY)); }
-                                else{ if(lines->FindLine(vec2(cX,cY)) != nullptr){
-                                    points->CreatePoint(selectedLine->Intersect(*lines->FindLine(vec2(cX,cY)))); selectedLine = nullptr; }
-                                } break;
-            }
-        }
-        if(strcmp(buttonStat,"released") == 0){
-            if(interactionMode == LINEMOVE){
-                selectedLine = nullptr;
-            }
+
         }
         glutPostRedisplay();
     }

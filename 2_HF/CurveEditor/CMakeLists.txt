@@ -8,14 +8,7 @@ add_executable(GRAPHICS
                 src/framework.h
                 src/framework.cpp
         src/Skeleton.h
-        src/Object.cpp
-        src/Object.h
-        src/PointCollection.cpp
-        src/PointCollection.h
-        src/Line.cpp
-        src/Line.h
-        src/LineCollection.cpp
-        src/LineCollection.h)
+)
 
 # Name of file that I want to build
 target_sources(GRAPHICS PRIVATE

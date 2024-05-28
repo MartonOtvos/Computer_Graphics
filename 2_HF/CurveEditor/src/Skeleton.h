@@ -2,10 +2,7 @@
 #define GRAPHICS_SKELETON_H
 
 
-#include "Object.h"
-#include "PointCollection.h"
-#include "Line.h"
-#include "LineCollection.h"
+#include "framework.h"
 
 enum Mode {
     POINTCREATE,
@@ -22,14 +19,6 @@ class Skeleton{
     const char * const fragmentShader;
 
     unsigned int shaderProgram;
-
-    PointCollection* points;
-    LineCollection* lines;
-
-    Mode interactionMode = POINTCREATE;
-
-    vec2 selectedPoint = vec2(NAN,NAN);
-    Line* selectedLine = nullptr;
 
     void InitializeShaderProgram();
 
