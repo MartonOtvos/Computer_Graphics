@@ -33,6 +33,10 @@ class Skeleton{
 
     unsigned int pickedPoint = -1;
 
+    bool animationEnabled = false;
+
+    long previousTime = glutGet(GLUT_ELAPSED_TIME);
+
 public:
 
     Skeleton();

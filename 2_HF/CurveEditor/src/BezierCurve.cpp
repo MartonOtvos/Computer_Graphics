@@ -23,7 +23,7 @@ vec2 BezierCurve::r(float t) {
 float BezierCurve::B(unsigned int i, float t) {
     int n = cps.size()-1;
     float binom = 1;
-    for(int j = 1; j <= i; j++) binom *= (float)(n-j+1)/j;
+    for(unsigned int j = 1; j <= i; j++) binom *= (float)(n-j+1)/j;
     return binom * pow(t,i) * pow((1-t),(n-i));
 }
 

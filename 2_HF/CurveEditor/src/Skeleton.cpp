@@ -108,11 +108,11 @@
     // Key of ASCII code pressed
     void Skeleton::onKeyboard(unsigned char key, int pX, int pY) {
         switch(key){
-            case 'l': delete curve; curve = new LagrangeCurve(shaderProgram); break;
+            case 'l': delete curve; curve = new LagrangeCurve(shaderProgram); animationEnabled = false; break;
 
-            case 'b': delete curve; curve = new BezierCurve(shaderProgram); break;
+            case 'b': delete curve; curve = new BezierCurve(shaderProgram); animationEnabled = false; break;
 
-            case 'c': delete curve; curve = new CatmullRomSpline(shaderProgram); break;
+            case 'c': delete curve; curve = new CatmullRomSpline(shaderProgram); animationEnabled = false; break;
 
             case 't': curve->AlterTension(-0.1); break;
             case 'T': curve->AlterTension(0.1); break;
@@ -121,7 +121,10 @@
             case 'Z': Camera->Zoom(1.1f);break;
 
             case 'p': Camera->Pan(-1); break;
-            case 'P': Camera->Pan(1);break;
+            case 'P': Camera->Pan(1); break;
+
+            case 'a': animationEnabled = true; break;
+            case 'A': animationEnabled = false; break;
             default: break;
         }
         glutPostRedisplay();
@@ -169,7 +172,20 @@
     }
 
     // Idle event indicating that some time elapsed: do animation here
-    void Skeleton::onIdle() {}
+    void Skeleton::onIdle() {
+        long time = glutGet(GLUT_ELAPSED_TIME); // elapsed time since the start of the program
+        float deltaTime = ((float) time - (float) previousTime) / 1000.0f;
+        previousTime = time;
+
+        // Debug prints
+
+        if(animationEnabled){
+
+            curve->AnimatePoint(deltaTime);
+            glutPostRedisplay();
+        }
+
+    }
 
 
 

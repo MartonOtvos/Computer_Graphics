@@ -33,13 +33,18 @@ void ParametricCurve::UpdateGPU() {
     glBindVertexArray(vao);
 
     glBindBuffer(GL_ARRAY_BUFFER,vbo1);
-
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vec2), &vertices[0], GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 
     glBindBuffer(GL_ARRAY_BUFFER,vbo2);
-
     glBufferData(GL_ARRAY_BUFFER, cps.size() * sizeof(vec2), &cps[0], GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+
+    glBindBuffer(GL_ARRAY_BUFFER,vbo3);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(animatedPoint), &animatedPoint, GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 }
 
@@ -58,11 +63,21 @@ ParametricCurve::ParametricCurve(unsigned int shader) : shaderProgram(shader), t
     glCreateBuffers(1,&vbo2);
     glBindBuffer(GL_ARRAY_BUFFER,vbo2);
     glBufferData(GL_ARRAY_BUFFER, cps.size() * sizeof(vec2), &cps[0], GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+
+    //Animated Point VBO
+    glCreateBuffers(1,&vbo3);
+    glBindBuffer(GL_ARRAY_BUFFER,vbo3);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(animatedPoint), &animatedPoint, GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 }
 
 void ParametricCurve::AddControlPoint(vec2 coords) {
+    if(cps.size() > 0) cps.erase(cps.end());
     cps.push_back(coords);
+    cps.push_back(cps.at(0));
     UpdateGeometry();
 }
 
@@ -86,18 +101,28 @@ void ParametricCurve::Draw(mat4 V, mat4 P) {
 
     location = glGetUniformLocation(shaderProgram,"color");
 
+    //Control Points
     glUniform3f(location,1,0,0);
-
     glBindBuffer(GL_ARRAY_BUFFER,vbo2);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
     glDrawArrays(GL_POINTS, 0, cps.size());
 
     if(cps.size() >= 2){
+        //Parametric Curve
         glUniform3f(location,1,1,0);
-
         glBindBuffer(GL_ARRAY_BUFFER,vbo1);
         glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
         glDrawArrays(GL_LINE_STRIP, 0, vertices.size());
+
+        //Animated Point
+        glUniform3f(location,0,1,1);
+        location = glGetUniformLocation(shaderProgram,"MVP");
+        MVP = animatedPointModel * V * P;
+        glUniformMatrix4fv(location, 1, GL_TRUE, &MVP[0][0]);
+        glBindBuffer(GL_ARRAY_BUFFER,vbo3);
+        glEnableVertexAttribArray(0);
+        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+        glDrawArrays(GL_POINTS, 0, 1);
     }
 
 
@@ -113,4 +138,14 @@ unsigned int ParametricCurve::PickControlPoint(vec2 coords) {
         if(length(coords-cps.at(i)) < 0.3) return i;
     }
     return -1;
+}
+
+void ParametricCurve::AnimatePoint(float d) {
+    float v = (float) vertices.size()/2.5f;
+    progress += v * d;
+    progress = fmod(progress, vertices.size()*2);
+    currentPointIndex = progress;
+    if(progress >= vertices.size()) currentPointIndex = vertices.size() - (progress - vertices.size());
+
+    animatedPointModel = TranslateMatrix(vertices.at(currentPointIndex));
 }
