@@ -56,6 +56,41 @@ build CMakeFiles/GRAPHICS.dir/src/framework.cpp.obj: CXX_COMPILER__GRAPHICS_unsc
   OBJECT_DIR = CMakeFiles\GRAPHICS.dir
   OBJECT_FILE_DIR = CMakeFiles\GRAPHICS.dir\src
 
+build CMakeFiles/GRAPHICS.dir/src/Camera2D.cpp.obj: CXX_COMPILER__GRAPHICS_unscanned_Debug C$:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/src/Camera2D.cpp || cmake_object_order_depends_target_GRAPHICS
+  DEP_FILE = CMakeFiles\GRAPHICS.dir\src\Camera2D.cpp.obj.d
+  FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/include
+  OBJECT_DIR = CMakeFiles\GRAPHICS.dir
+  OBJECT_FILE_DIR = CMakeFiles\GRAPHICS.dir\src
+
+build CMakeFiles/GRAPHICS.dir/src/ParametricCurve.cpp.obj: CXX_COMPILER__GRAPHICS_unscanned_Debug C$:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/src/ParametricCurve.cpp || cmake_object_order_depends_target_GRAPHICS
+  DEP_FILE = CMakeFiles\GRAPHICS.dir\src\ParametricCurve.cpp.obj.d
+  FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/include
+  OBJECT_DIR = CMakeFiles\GRAPHICS.dir
+  OBJECT_FILE_DIR = CMakeFiles\GRAPHICS.dir\src
+
+build CMakeFiles/GRAPHICS.dir/src/LagrangeCurve.cpp.obj: CXX_COMPILER__GRAPHICS_unscanned_Debug C$:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/src/LagrangeCurve.cpp || cmake_object_order_depends_target_GRAPHICS
+  DEP_FILE = CMakeFiles\GRAPHICS.dir\src\LagrangeCurve.cpp.obj.d
+  FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/include
+  OBJECT_DIR = CMakeFiles\GRAPHICS.dir
+  OBJECT_FILE_DIR = CMakeFiles\GRAPHICS.dir\src
+
+build CMakeFiles/GRAPHICS.dir/src/BezierCurve.cpp.obj: CXX_COMPILER__GRAPHICS_unscanned_Debug C$:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/src/BezierCurve.cpp || cmake_object_order_depends_target_GRAPHICS
+  DEP_FILE = CMakeFiles\GRAPHICS.dir\src\BezierCurve.cpp.obj.d
+  FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/include
+  OBJECT_DIR = CMakeFiles\GRAPHICS.dir
+  OBJECT_FILE_DIR = CMakeFiles\GRAPHICS.dir\src
+
+build CMakeFiles/GRAPHICS.dir/src/CatmullRomSpline.cpp.obj: CXX_COMPILER__GRAPHICS_unscanned_Debug C$:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/src/CatmullRomSpline.cpp || cmake_object_order_depends_target_GRAPHICS
+  DEP_FILE = CMakeFiles\GRAPHICS.dir\src\CatmullRomSpline.cpp.obj.d
+  FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/include
+  OBJECT_DIR = CMakeFiles\GRAPHICS.dir
+  OBJECT_FILE_DIR = CMakeFiles\GRAPHICS.dir\src
+
 build CMakeFiles/GRAPHICS.dir/src/Skeleton.cpp.obj: CXX_COMPILER__GRAPHICS_unscanned_Debug C$:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/src/Skeleton.cpp || cmake_object_order_depends_target_GRAPHICS
   DEP_FILE = CMakeFiles\GRAPHICS.dir\src\Skeleton.cpp.obj.d
   FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always
@@ -71,7 +106,7 @@ build CMakeFiles/GRAPHICS.dir/src/Skeleton.cpp.obj: CXX_COMPILER__GRAPHICS_unsca
 #############################################
 # Link the executable GRAPHICS.exe
 
-build GRAPHICS.exe: CXX_EXECUTABLE_LINKER__GRAPHICS_Debug CMakeFiles/GRAPHICS.dir/src/framework.cpp.obj CMakeFiles/GRAPHICS.dir/src/Skeleton.cpp.obj
+build GRAPHICS.exe: CXX_EXECUTABLE_LINKER__GRAPHICS_Debug CMakeFiles/GRAPHICS.dir/src/framework.cpp.obj CMakeFiles/GRAPHICS.dir/src/Camera2D.cpp.obj CMakeFiles/GRAPHICS.dir/src/ParametricCurve.cpp.obj CMakeFiles/GRAPHICS.dir/src/LagrangeCurve.cpp.obj CMakeFiles/GRAPHICS.dir/src/BezierCurve.cpp.obj CMakeFiles/GRAPHICS.dir/src/CatmullRomSpline.cpp.obj CMakeFiles/GRAPHICS.dir/src/Skeleton.cpp.obj
   FLAGS = -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g
   LINK_LIBRARIES = -lopengl32  -lglu32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\GRAPHICS.dir

@@ -3,6 +3,11 @@
 
 
 #include "framework.h"
+#include "Camera2D.h"
+#include "ParametricCurve.h"
+#include "LagrangeCurve.h"
+#include "BezierCurve.h"
+#include "CatmullRomSpline.h"
 
 enum Mode {
     POINTCREATE,
@@ -21,6 +26,12 @@ class Skeleton{
     unsigned int shaderProgram;
 
     void InitializeShaderProgram();
+
+    Camera2D* Camera;
+
+    ParametricCurve* curve;
+
+    unsigned int pickedPoint = -1;
 
 public:
 

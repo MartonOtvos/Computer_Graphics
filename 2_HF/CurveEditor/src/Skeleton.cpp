@@ -44,6 +44,7 @@
 
         void main() {
             gl_Position = vec4(vp.x, vp.y, 0, 1) * MVP;
+
         }
     )";
 
@@ -66,7 +67,11 @@
     void Skeleton::onInitialization() {
         glViewport(0, 0, windowWidth, windowHeight);
         InitializeShaderProgram();
+        Camera = new Camera2D(vec2(30,30),vec2(0,0));
+        glPointSize(10);
+        glLineWidth(2);
 
+        curve = new CatmullRomSpline(shaderProgram);
 
     }
 
@@ -95,7 +100,7 @@
         glClearColor(0,0,0,0);
         glClear(GL_COLOR_BUFFER_BIT);
 
-
+        curve->Draw(Camera->View(),Camera->Projection());
 
         glutSwapBuffers();
     }
@@ -103,13 +108,23 @@
     // Key of ASCII code pressed
     void Skeleton::onKeyboard(unsigned char key, int pX, int pY) {
         switch(key){
-            case 'p': break;
-            case 'l': break;
-            case 'i': break;
-            case 'm': break;
+            case 'l': delete curve; curve = new LagrangeCurve(shaderProgram); break;
+
+            case 'b': delete curve; curve = new BezierCurve(shaderProgram); break;
+
+            case 'c': delete curve; curve = new CatmullRomSpline(shaderProgram); break;
+
+            case 't': curve->AlterTension(-0.1); break;
+            case 'T': curve->AlterTension(0.1); break;
+
+            case 'z': Camera->Zoom(1/1.1f); break;
+            case 'Z': Camera->Zoom(1.1f);break;
+
+            case 'p': Camera->Pan(-1); break;
+            case 'P': Camera->Pan(1);break;
             default: break;
         }
-
+        glutPostRedisplay();
     }
 
     // Key of ASCII code released
@@ -120,6 +135,10 @@
         // Convert to normalized device space
         float cX = 2.0f * pX / windowWidth - 1;	// flip y axis
         float cY = 1.0f - 2.0f * pY / windowHeight;
+        vec4 c = vec4(cX,cY,0,1) * Camera->InverseProjection() * Camera->InverseView();
+
+        if(!isnan(pickedPoint)) curve->AlterControlPoint(pickedPoint,vec2(c.x,c.y));
+        glutPostRedisplay();
     }
 
     // Mouse click event
@@ -127,6 +146,7 @@
         // Convert to normalized device space
         float cX = 2.0f * pX / windowWidth - 1;	// flip y axis
         float cY = 1.0f - 2.0f * pY / windowHeight;
+        vec4 c = vec4(cX,cY,0,1) * Camera->InverseProjection() * Camera->InverseView();
 
         char * buttonStat;
         switch (state) {
@@ -134,14 +154,16 @@
             case GLUT_UP:   buttonStat = (char*) "released"; break;
         }
 
-        switch (button) {
-            case GLUT_LEFT_BUTTON:      break;
-            case GLUT_MIDDLE_BUTTON:    break;
-            case GLUT_RIGHT_BUTTON:     break;
+        if(strcmp(buttonStat,"pressed") == 0){
+            switch (button) {
+                case GLUT_LEFT_BUTTON: curve->AddControlPoint(vec2(c.x,c.y));     break;
+                case GLUT_MIDDLE_BUTTON:    break;
+                case GLUT_RIGHT_BUTTON: pickedPoint = curve->PickControlPoint(vec2(c.x,c.y));    break;
+            }
         }
 
-        if(strcmp(buttonStat,"pressed") == 0){
-
+        if(strcmp(buttonStat,"released") == 0){
+            pickedPoint = -1;
         }
         glutPostRedisplay();
     }

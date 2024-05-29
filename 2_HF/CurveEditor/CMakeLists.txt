@@ -8,6 +8,16 @@ add_executable(GRAPHICS
                 src/framework.h
                 src/framework.cpp
         src/Skeleton.h
+        src/Camera2D.cpp
+        src/Camera2D.h
+        src/ParametricCurve.cpp
+        src/ParametricCurve.h
+        src/LagrangeCurve.cpp
+        src/LagrangeCurve.h
+        src/BezierCurve.cpp
+        src/BezierCurve.h
+        src/CatmullRomSpline.cpp
+        src/CatmullRomSpline.h
 )
 
 # Name of file that I want to build
