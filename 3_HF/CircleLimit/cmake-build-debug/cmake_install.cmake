@@ -1,4 +1,4 @@
-# Install script for directory: C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor
+# Install script for directory: C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/3_HF/CircleLimit
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/3_HF/CircleLimit/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

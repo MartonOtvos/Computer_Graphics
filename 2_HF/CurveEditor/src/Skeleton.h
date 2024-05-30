@@ -9,13 +9,6 @@
 #include "BezierCurve.h"
 #include "CatmullRomSpline.h"
 
-enum Mode {
-    POINTCREATE,
-    LINECREATE,
-    LINEMOVE,
-    INTERSECT
-};
-
 class Skeleton{
     // vertex shader in GLSL: It is a Raw string (C++11) since it contains new line characters
     const char * const vertexShader;

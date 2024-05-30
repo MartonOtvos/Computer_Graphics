@@ -59,14 +59,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always"
+					"fragment" : " -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/3_HF/CircleLimit/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/3_HF/CircleLimit/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g -std=gnu++17 -fdiagnostics-color=always"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 3,
-					"path" : "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/include"
+					"path" : "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/3_HF/CircleLimit/include"
 				}
 			],
 			"language" : "CXX",
@@ -91,7 +91,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g",
+				"fragment" : "-LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/3_HF/CircleLimit/bin -LC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/3_HF/CircleLimit/lib -lglew32 -lfreeglut -lopengl32 -pedantic -Wall -g",
 				"role" : "flags"
 			},
 			{
