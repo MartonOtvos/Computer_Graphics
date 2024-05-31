@@ -8,6 +8,10 @@ add_executable(GRAPHICS
                 src/framework.h
                 src/framework.cpp
         src/Skeleton.h
+        src/Star.cpp
+        src/Star.h
+        src/ProceduralCircleLimitTexture.cpp
+        src/ProceduralCircleLimitTexture.h
 )
 
 # Name of file that I want to build

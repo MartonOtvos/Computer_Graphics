@@ -39,11 +39,15 @@
         #version 330
         precision highp float;
 
-        uniform mat4 MVP;
         layout(location = 0) in vec2 vp;
+        layout(location = 1) in vec2 uv;
+
+        uniform mat4 MVP;
+        out vec2 texcoord;
 
         void main() {
             gl_Position = vec4(vp.x, vp.y, 0, 1) * MVP;
+            texcoord = uv;
         }
     )";
 
@@ -52,11 +56,12 @@
         #version 330
         precision highp float;
 
-        uniform vec3 color;
+        uniform sampler2D samplerUnit;
+        in vec2 texcoord;
         out vec4 outColor;
 
         void main() {
-            outColor = vec4(color, 1);
+            outColor = texture(samplerUnit, texcoord);
         }
     )";
 
@@ -66,6 +71,7 @@
     void Skeleton::onInitialization() {
         glViewport(0, 0, windowWidth, windowHeight);
         InitializeShaderProgram();
+        star = new Star(shaderProgram);
 
 
     }
@@ -94,8 +100,7 @@
     void Skeleton::onDisplay() {
         glClearColor(0,0,0,0);
         glClear(GL_COLOR_BUFFER_BIT);
-
-
+        star->Draw();
 
         glutSwapBuffers();
     }
@@ -103,13 +108,17 @@
     // Key of ASCII code pressed
     void Skeleton::onKeyboard(unsigned char key, int pX, int pY) {
         switch(key){
-            case 'p': break;
-            case 'l': break;
-            case 'i': break;
-            case 'm': break;
+            case 's': star->AlterSchlank(-10); break;
+            case 'S': star->AlterSchlank(10); break;
+            case 'a': animationEnabled = false; break;
+            case 'A': animationEnabled = true; break;
+            case 'r': star->AlterTextureResolution(-100); break;
+            case 'R': star->AlterTextureResolution(100); break;
+            case 't': star->AlterTextureSamplingMode(GL_NEAREST); break;
+            case 'T': star->AlterTextureSamplingMode(GL_LINEAR); break;
             default: break;
         }
-
+        glutPostRedisplay();
     }
 
     // Key of ASCII code released
@@ -147,7 +156,17 @@
     }
 
     // Idle event indicating that some time elapsed: do animation here
-    void Skeleton::onIdle() {}
+    void Skeleton::onIdle() {
+        long time = glutGet(GLUT_ELAPSED_TIME); // elapsed time since the start of the program
+        float deltaTime = ((float) time - (float) previousTime) / 1000.0f;
+        previousTime = time;
+
+        if(animationEnabled){
+            star->Animate(deltaTime);
+            glutPostRedisplay();
+        }
+
+    }
 
 
 

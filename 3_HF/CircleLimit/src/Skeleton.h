@@ -3,7 +3,7 @@
 
 
 #include "framework.h"
-
+#include "Star.h"
 
 
 class Skeleton{
@@ -16,6 +16,12 @@ class Skeleton{
     unsigned int shaderProgram;
 
     void InitializeShaderProgram();
+
+    bool animationEnabled = false;
+
+    long previousTime = glutGet(GLUT_ELAPSED_TIME);
+
+    Star* star;
 
 public:
 
