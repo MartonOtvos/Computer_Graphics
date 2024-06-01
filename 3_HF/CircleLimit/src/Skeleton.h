@@ -3,11 +3,8 @@
 
 
 #include "framework.h"
-#include "Camera2D.h"
-#include "ParametricCurve.h"
-#include "LagrangeCurve.h"
-#include "BezierCurve.h"
-#include "CatmullRomSpline.h"
+#include "Star.h"
+
 
 class Skeleton{
     // vertex shader in GLSL: It is a Raw string (C++11) since it contains new line characters
@@ -20,15 +17,11 @@ class Skeleton{
 
     void InitializeShaderProgram();
 
-    Camera2D* Camera;
-
-    ParametricCurve* curve;
-
-    unsigned int pickedPoint = -1;
-
     bool animationEnabled = false;
 
     long previousTime = glutGet(GLUT_ELAPSED_TIME);
+
+    Star* star;
 
 public:
 
