@@ -25,7 +25,7 @@ int main(int argc, char * argv[]) {
 #else
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 #endif
-	glutCreateWindow("Line Manipulation");
+	glutCreateWindow("Ray Tracing");
 
 #if !defined(__APPLE__)
 	glewExperimental = true;	// magic

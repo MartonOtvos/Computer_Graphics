@@ -39,24 +39,29 @@
         #version 330
         precision highp float;
 
-        uniform mat4 MVP;
         layout(location = 0) in vec2 vp;
+        layout(location = 1) in vec2 uv;
+
+        uniform mat4 MVP;
+        out vec2 texcoord;
 
         void main() {
             gl_Position = vec4(vp.x, vp.y, 0, 1) * MVP;
+            texcoord = uv;
         }
     )";
 
-    // fragment shader in GLSL
+// fragment shader in GLSL
     static const char * const fragmentSource = R"(
         #version 330
         precision highp float;
 
-        uniform vec3 color;
+        uniform sampler2D samplerUnit;
+        in vec2 texcoord;
         out vec4 outColor;
 
         void main() {
-            outColor = vec4(color, 1);
+            outColor = texture(samplerUnit, texcoord);
         }
     )";
 
@@ -66,28 +71,30 @@
     void Skeleton::onInitialization() {
         glViewport(0, 0, windowWidth, windowHeight);
         InitializeShaderProgram();
-
-
+        texturedQuad = new TexturedQuad(shaderProgram);
+        scene = new Scene();
+        scene->Build();
+        image = scene->Render();
     }
 
     void Skeleton::InitializeShaderProgram(){
-        unsigned int vertShader = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertShader, 1, (const GLchar**)&vertexShader, NULL);
-        glCompileShader(vertShader);
+            unsigned int vertShader = glCreateShader(GL_VERTEX_SHADER);
+            glShaderSource(vertShader, 1, (const GLchar**)&vertexShader, NULL);
+            glCompileShader(vertShader);
 
-        unsigned int fragShader = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragShader, 1, (const GLchar**)&fragmentShader, NULL);
-        glCompileShader(fragShader);
+            unsigned int fragShader = glCreateShader(GL_FRAGMENT_SHADER);
+            glShaderSource(fragShader, 1, (const GLchar**)&fragmentShader, NULL);
+            glCompileShader(fragShader);
 
-        shaderProgram = glCreateProgram();
-        glAttachShader(shaderProgram, vertShader);
-        glAttachShader(shaderProgram, fragShader);
+            shaderProgram = glCreateProgram();
+            glAttachShader(shaderProgram, vertShader);
+            glAttachShader(shaderProgram, fragShader);
 
-        glBindFragDataLocation(shaderProgram, 0, "outColor");
+            glBindFragDataLocation(shaderProgram, 0, "outColor");
 
-        glLinkProgram(shaderProgram);
-        glUseProgram(shaderProgram);
-    }
+            glLinkProgram(shaderProgram);
+            glUseProgram(shaderProgram);
+        }
 
 
     // Window has become invalid: Redraw
@@ -95,7 +102,7 @@
         glClearColor(0,0,0,0);
         glClear(GL_COLOR_BUFFER_BIT);
 
-
+        texturedQuad->Draw(image);
 
         glutSwapBuffers();
     }

@@ -8,6 +8,19 @@ add_executable(GRAPHICS
                 src/framework.h
                 src/framework.cpp
         src/Skeleton.h
+        src/RayTraceFramework.h
+        src/Cylinder.cpp
+        src/Cylinder.h
+        src/Cone.cpp
+        src/Cone.h
+        src/Plane.cpp
+        src/Plane.h
+        src/Scene.cpp
+        src/Scene.h
+        src/Camera3D.cpp
+        src/Camera3D.h
+        src/TexturedQuad.cpp
+        src/TexturedQuad.h
 )
 
 # Name of file that I want to build

@@ -3,13 +3,7 @@
 
 
 #include "framework.h"
-
-enum Mode {
-    POINTCREATE,
-    LINECREATE,
-    LINEMOVE,
-    INTERSECT
-};
+#include "TexturedQuad.h"
 
 class Skeleton{
     // vertex shader in GLSL: It is a Raw string (C++11) since it contains new line characters
@@ -21,6 +15,12 @@ class Skeleton{
     unsigned int shaderProgram;
 
     void InitializeShaderProgram();
+
+    TexturedQuad* texturedQuad;
+
+    Scene* scene;
+
+    vector<vec4> image;
 
 public:
 
