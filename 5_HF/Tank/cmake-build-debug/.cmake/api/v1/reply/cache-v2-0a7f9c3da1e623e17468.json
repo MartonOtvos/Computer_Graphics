@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/cmake-build-debug"
+			"value" : "c:/Schoo/Grafika/GrafikaGit/Computer_Graphics/5_HF/Tank/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -575,7 +575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/5_HF/Tank/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -647,7 +647,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor"
+			"value" : "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/5_HF/Tank"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -687,7 +687,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/ninja/win/x64/ninja.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -1275,7 +1275,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/cmake-build-debug"
+			"value" : "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/5_HF/Tank/cmake-build-debug"
 		},
 		{
 			"name" : "GRAPHICS_IS_TOP_LEVEL",
@@ -1299,7 +1299,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor"
+			"value" : "C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/5_HF/Tank"
 		},
 		{
 			"name" : "OPENGL_gl_LIBRARY",

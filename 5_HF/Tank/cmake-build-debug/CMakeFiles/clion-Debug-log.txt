@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor -B C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\5_HF\Tank -B C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\5_HF\Tank\cmake-build-debug
 -- The C compiler identification is GNU 8.1.0
 -- The CXX compiler identification is GNU 8.1.0
 -- Detecting C compiler ABI info
@@ -12,6 +12,6 @@
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 -- Found OpenGL: opengl32   
--- Configuring done (2.9s)
+-- Configuring done (2.5s)
 -- Generating done (0.0s)
--- Build files have been written to: C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/cmake-build-debug
+-- Build files have been written to: C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/5_HF/Tank/cmake-build-debug
