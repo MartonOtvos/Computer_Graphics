@@ -151,7 +151,7 @@
         float cY = 1.0f - 2.0f * pY / windowHeight;
         vec4 c = vec4(cX,cY,0,1) * Camera->InverseProjection() * Camera->InverseView();
 
-        char * buttonStat;
+        char * buttonStat = (char*) "placeholder";
         switch (state) {
             case GLUT_DOWN: buttonStat = (char*) "pressed"; break;
             case GLUT_UP:   buttonStat = (char*) "released"; break;
