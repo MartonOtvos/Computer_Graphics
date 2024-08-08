@@ -1,0 +1,10 @@
+^C:\SCHOO\GRAFIKA\GRAFIKAGIT\COMPUTER_GRAPHICS\2_HF\CURVEEDITOR\CMAKE-BUILD-DEBUG\CMAKEFILES\E891063965EDA6A3E5C3CA6D725BBDFD\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -SC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor -BC:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/cmake-build-debug --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Schoo/Grafika/GrafikaGit/Computer_Graphics/2_HF/CurveEditor/cmake-build-debug/GRAPHICS.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

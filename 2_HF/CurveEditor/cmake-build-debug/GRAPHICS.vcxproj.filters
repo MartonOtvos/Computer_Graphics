@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\framework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\Camera2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\ParametricCurve.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\LagrangeCurve.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\BezierCurve.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\CatmullRomSpline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\Skeleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\Skeleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\Camera2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\ParametricCurve.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\LagrangeCurve.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\BezierCurve.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\src\CatmullRomSpline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{37956F4E-F36C-3DE9-AB35-81482490EDF3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{47396BBF-979E-351A-AD04-F7EE9CB678A9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

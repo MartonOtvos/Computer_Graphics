@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Schoo\Grafika\GrafikaGit\Computer_Graphics\2_HF\CurveEditor\cmake-build-release\CMakeFiles\ccd5e16db6286ebf02f71ffb695478ce\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{453BCA8B-FF78-38F5-ABF9-081B467C6BD5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

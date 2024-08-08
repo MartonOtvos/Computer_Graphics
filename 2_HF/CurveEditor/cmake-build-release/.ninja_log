@@ -1,0 +1,10 @@
+# ninja log v5
+16	1669	7390549275841606	CMakeFiles/GRAPHICS.dir/src/framework.cpp.obj	49bb182dfcd6a02c
+83	1810	7390549277240062	CMakeFiles/GRAPHICS.dir/src/CatmullRomSpline.cpp.obj	4a316510915ba171
+5	1650	7390549275631608	CMakeFiles/GRAPHICS.dir/src/Camera2D.cpp.obj	e4c137c4bb28d855
+23	1737	7390549276511638	CMakeFiles/GRAPHICS.dir/src/BezierCurve.cpp.obj	e5fc0a9112778731
+3	1184	7390549710646534	CMakeFiles/GRAPHICS.dir/src/Skeleton.cpp.obj	9d429ebefaf3d3ab
+104	1776	7390549276910064	CMakeFiles/GRAPHICS.dir/src/LagrangeCurve.cpp.obj	43351e85be6b1f1c
+9	1864	7390549277770071	CMakeFiles/GRAPHICS.dir/src/ParametricCurve.cpp.obj	92b9dec746b620c1
+1184	1509	7390549713856527	GRAPHICS.exe	8a51bd8c78ca9d36
+1	115	7392407140760270	build.ninja	563ef163fc09d077
