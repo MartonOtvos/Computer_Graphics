@@ -110,10 +110,8 @@
     // Key of ASCII code pressed
     void Skeleton::onKeyboard(unsigned char key, int pX, int pY) {
         switch(key){
-            case 'p': break;
-            case 'l': break;
-            case 'i': break;
-            case 'm': break;
+            case 'a': scene->MoveOne(); image = scene->Render(); glutPostRedisplay(); break;
+
             default: break;
         }
 

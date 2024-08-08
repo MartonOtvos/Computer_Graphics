@@ -63,7 +63,8 @@ struct vec3 {
 
 	vec3 operator*(float a) const { return vec3(x * a, y * a, z * a); }
 	vec3 operator/(float a) const { return vec3(x / a, y / a, z / a); }
-	vec3 operator+(const vec3& v) const { return vec3(x + v.x, y + v.y, z + v.z); }
+    vec3 operator/(const vec3& d) const{ return vec3(x/d.x,y/d.y,z/d.z); }
+    vec3 operator+(const vec3& v) const { return vec3(x + v.x, y + v.y, z + v.z); }
 	vec3 operator-(const vec3& v) const { return vec3(x - v.x, y - v.y, z - v.z); }
 	vec3 operator*(const vec3& v) const { return vec3(x * v.x, y * v.y, z * v.z); }
 	vec3 operator-()  const { return vec3(-x, -y, -z); }
